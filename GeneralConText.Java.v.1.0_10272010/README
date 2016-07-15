@@ -1,0 +1,87 @@
+##############################
+# Programmer: Junebae Kye
+# juneaki@u.washington.edu
+#
+# Supervisor: Imre Solti         
+# imre.solti@cchmc.org 
+# 
+# Corresponding author: Imre Solti
+# imre.solti@cchmc.org    
+#                            
+# Date: 07/04/2010           
+# Created: 07/04/2010	
+# Modified: 10/27/2010 (Imre Solti)                   
+#                            
+##############################
+
+GenNegEx -- A JAVA class to implement Wendy Chapman's NegEx algorithm.
+GenExperiencer and GenTemporality -- JAVA classes to implement Wendy Chapman's ConText algorithm.
+
+ACKNOWLEDGEMENTS: We would like to thank Brian and Wendy Chapman for providing access to their Python implementation.
+
+DISCLAIMER: We could test only the GenNegEx module and not the GenExperiencer and GenTemporality modules.
+
+The original NegEx algorithm is published at:
+http://www.dbmi.pitt.edu/chapman/NegEx.html
+
+The original ConText algorithm is published at:
+http://www.dbmi.pitt.edu/chapman/ConText.html
+
+
+#####################
+# Motivation:       #
+#####################
+The motivation to release this code is two-fold.
+
+One goal is to make Wendy Chapman's  ConText
+algorithm more accessible for server side (that is non-GUI) programming for
+JAVA development for research purposes. The code was tested for research only
+and no enterprise purposes of any kind. We tested only the GenNegEx module.
+
+The second goal is to try Ted Pedersen's suggestion for code sharing
+as he describes in the 2008 Computational Lingusitics article.
+Pedersen, T. "Empiricism is not a matter of faith." Computational Linguistics. 34: 465-470, 2008.
+http://www.d.umn.edu/~tpederse/Pubs/pedersen-last-word-2008.pdf
+
+
+######################
+# Files:             #
+######################
+This package includes a total of 9 files.
+1)   GenNegEx.java: Source code for the JAVA implementation of NegEx.
+     It contains an instance to return a string of negation scope if it exists in a sentence.  Otherwise, returns -1
+     If a pre-UMLS phrase is used as a post-UMLS phrase, for example, pain and fever denied, it will print -2 with an option of no or the negation scope with an option of yes     
+2)   GenExperiencer.java: Source code for the JAVA implementation of ConText.
+     It contains an instance to return an experiencer if it exists in a sentence. Otherwise, returns "Patient"
+3)   GenTemporality.java: Source code for the JAVA implementation of ConText.
+     It contains an instrance to return a temporality if it exists in a sentence. Otherwise, returns "Recent"
+4)   MainConText.java: Main program to run.
+     Running is like this: java MainConText Annotations-1-120-random.txt yes(or no)
+     It prints in this format: Number TAB Phrase TAB Sentence TAB Dummystring TAB Negation Scope TAB Temporality TAB Experiencer. For example, 550    hiatal hernia	A HIATAL HERNIA was found.	Affirmed	-1	Historical Patient
+5)   Apache_license.pdf: The package is licensed under Apache License 2.0:
+     http://www.apache.org/licenses/LICENSE-2.0.html
+6)   Annotations-1-120-random.txt: The test kit. Format of the test kit and files
+     with sentences to check negations for follows this structure:
+     Number TAB Phrase TAB Sentence TAB Dummystring
+7)   README: This file.
+8)   run.sh: Running MainConText
+
+and class files.
+
+
+#######################
+# License:	      #
+#######################
+Copyright 2010 Imre Solti
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at 
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
